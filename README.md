@@ -2,8 +2,8 @@
 
 ## Live Link
 
-Netlify :
-FireBase:
+Netlify :https://deluxe-crostata-f5304a.netlify.app/
+FireBase:https://a9-real-estate-1e537.web.app/
 
 Welcome to Sovereign Suites, where luxury meets elegance! This readme.me provides an overview of our luxury hotel website.
 
