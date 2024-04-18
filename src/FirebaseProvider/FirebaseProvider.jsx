@@ -56,8 +56,8 @@ const FirebaseProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user);
         setLoading(false);
+        setUser(user);
       }
     });
     return () => unsubscribe();

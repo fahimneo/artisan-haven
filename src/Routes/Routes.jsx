@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             <EstatesDetails></EstatesDetails>
           </PrivateRoute>
         ),
-        loader: () => fetch("/public/estate.json"),
+        loader: () => fetch("/estate.json"),
       },
       {
         path: "/about",
