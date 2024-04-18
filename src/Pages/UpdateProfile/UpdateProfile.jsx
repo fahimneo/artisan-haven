@@ -1,16 +1,26 @@
 import { Helmet } from "react-helmet-async";
+import ProfileUpdate from "./ProfileUpdate";
+import UseAuth from "../../Hoocks/UseAuth";
 
 const UpdateProfile = () => {
+  const { UpdateProfiles } = UseAuth();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const image = form.get("image");
+    UpdateProfiles(name, image);
+  };
   return (
-    <div>
-      <Helmet>
-        <title>Update-Profile</title>
-      </Helmet>
+    <div className="flex justify-evenly">
       <div className="bg-gray-100 h-screen flex justify-center items-center ">
+        <Helmet>
+          <title>Update-Profile</title>
+        </Helmet>
         <div className="max-w-md w-full p-8 bg-red-300 rounded-lg shadow-2xl">
           <h2 className="text-3xl font-bold mb-1">Update Profile</h2>
           <p className="mb-6">Please update your profile</p>
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block mb-1">
                 Name:
@@ -46,6 +56,7 @@ const UpdateProfile = () => {
           </form>
         </div>
       </div>
+      <ProfileUpdate></ProfileUpdate>
     </div>
   );
 };

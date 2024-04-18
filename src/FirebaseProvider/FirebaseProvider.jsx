@@ -26,7 +26,7 @@ const FirebaseProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const updateUserProfile = (name, image) => {
+  const updateUserProfiles = (name, image) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: image,
@@ -71,7 +71,7 @@ const FirebaseProvider = ({ children }) => {
     logOut,
     user,
     loading,
-    updateUserProfile,
+    updateUserProfiles,
   };
   return (
     <AuthContext.Provider value={allValues}>{children}</AuthContext.Provider>

@@ -4,10 +4,11 @@ import SocialLogin from "./SocialLogin";
 import UseAuth from "../../Hoocks/UseAuth";
 import { Helmet } from "react-helmet-async";
 import toast, { Toaster } from "react-hot-toast";
-// import { useState } from "react";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  // const [registerUser, setRegisterUser] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser, updateUserProfile } = UseAuth();
   const {
     register,
@@ -101,14 +102,22 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
                   placeholder="password"
+                  required
                   className="input input-bordered"
                   {...register("password", { required: true })}
                 />
                 {errors.password && (
                   <span className="text-red-500">This field is required</span>
                 )}
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="ml-52 -mt-8"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
               </div>
               <div className="form-control mt-6 p-0">
                 <button className="btn btn-neutral">Register</button>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
 import UseAuth from "../../Hoocks/UseAuth";
 import { Helmet } from "react-helmet-async";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { signInUser } = UseAuth();
@@ -17,15 +18,22 @@ const Login = () => {
   const from = location?.state || "/";
   const onSubmit = (data) => {
     const { email, password } = data;
-    signInUser(email, password).then((result) => {
-      if (result.user) {
-        navigate(from);
-      }
-    });
+
+    signInUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          navigate(from);
+        }
+        toast.success("User logged in successfully");
+      })
+      .catch(() => {
+        toast.error("User not found");
+      });
   };
 
   return (
     <>
+      <Toaster />
       <div className="hero min-h-screen bg-base-200">
         <Helmet>
           <title>Login-Page</title>
@@ -55,7 +63,7 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="password"
                   className="input input-bordered"
                   {...register("password", { required: true })}
