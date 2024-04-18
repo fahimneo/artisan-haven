@@ -1,0 +1,43 @@
+import { createBrowserRouter } from "react-router-dom";
+import Root from "../Layout/Root";
+import Home from "../Pages/Home/Home";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Login/Register";
+import EstatesDetails from "../EstateDetails/EstatesDetails";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root></Root>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/update-profile",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/estates/:id",
+        element: (
+          <PrivateRoute>
+            <EstatesDetails></EstatesDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("../public/estate.json"),
+      },
+    ],
+  },
+]);
+
+export default router;
