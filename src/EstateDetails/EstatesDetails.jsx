@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const EstatesDetails = () => {
@@ -8,6 +9,9 @@ const EstatesDetails = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Estate-Details</title>
+      </Helmet>
       <div className="hero-content flex-col ">
         <img src={estate.image} className="max-w-xl rounded-lg shadow-2xl" />
         <div>

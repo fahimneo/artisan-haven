@@ -2,8 +2,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
 import UseAuth from "../../Hoocks/UseAuth";
+import { Helmet } from "react-helmet-async";
+import toast, { Toaster } from "react-hot-toast";
+// import { useState } from "react";
 
 const Register = () => {
+  // const [registerUser, setRegisterUser] = useState("");
   const { createUser, updateUserProfile } = UseAuth();
   const {
     register,
@@ -15,6 +19,18 @@ const Register = () => {
   const from = location?.state || "/";
   const onSubmit = (data) => {
     const { email, password, image, fullName } = data;
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    } else if (!/(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password)) {
+      toast.error(
+        "Password must contain at least one uppercase and one lowercase"
+      );
+      return;
+    } else {
+      toast.success("User created successfully");
+    }
+
     createUser(email, password).then(() => {
       updateUserProfile(fullName, image)
         .then(() => {
@@ -27,7 +43,11 @@ const Register = () => {
   };
   return (
     <>
+      <Toaster />
       <div className="hero min-h-screen bg-base-200 w-full">
+        <Helmet>
+          <title>Register-Page</title>
+        </Helmet>
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register now!</h1>

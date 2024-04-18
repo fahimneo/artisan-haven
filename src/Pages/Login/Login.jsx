@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SocialLogin from "./SocialLogin";
 import UseAuth from "../../Hoocks/UseAuth";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signInUser } = UseAuth();
@@ -26,6 +27,9 @@ const Login = () => {
   return (
     <>
       <div className="hero min-h-screen bg-base-200">
+        <Helmet>
+          <title>Login-Page</title>
+        </Helmet>
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>

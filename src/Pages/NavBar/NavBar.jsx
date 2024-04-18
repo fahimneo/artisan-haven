@@ -51,33 +51,33 @@ const NavBar = () => {
 
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="dropdown dropdown-end flex justify-center items-center">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar"
+              onMouseOver={(e) =>
+                (e.target.title = user?.displayName || "user name not found")
+              }
+              onMouseLeave={(e) => (e.target.title = "")}
+            >
               <div className="w-10 rounded-full">
                 <img
                   src={user?.photoURL || "https://i.ibb.co/WP05v9w/Rakib.jpg"}
                 />
               </div>
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            <button
+              onClick={logOut}
+              className="btn btn-sm btn-outline btn-warning"
             >
-              <li>
-                <button className="btn btn-sm  btn-ghost">
-                  {user?.displayName || "user name not found"}
-                </button>
-              </li>
-              <li>
-                <button onClick={logOut} className="btn btn-sm  btn-ghost">
-                  Logout
-                </button>
-              </li>
-            </ul>
+              Logout
+            </button>
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-sm  btn-ghost">Login</button>
+            <button className="btn btn-sm btn-outline btn-warning">
+              Login
+            </button>
           </Link>
         )}
       </div>
