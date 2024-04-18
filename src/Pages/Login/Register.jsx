@@ -4,7 +4,7 @@ import SocialLogin from "./SocialLogin";
 import UseAuth from "../../Hoocks/UseAuth";
 
 const Register = () => {
-  const { createUser } = UseAuth();
+  const { createUser, updateUserProfile } = UseAuth();
   const {
     register,
     handleSubmit,
@@ -14,11 +14,15 @@ const Register = () => {
   const location = useLocation();
   const from = location?.state || "/";
   const onSubmit = (data) => {
-    const { email, password } = data;
-    createUser(email, password).then((result) => {
-      if (result.user) {
-        navigate(from);
-      }
+    const { email, password, image, fullName } = data;
+    createUser(email, password).then(() => {
+      updateUserProfile(fullName, image)
+        .then(() => {
+          navigate(from);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
   };
   return (
