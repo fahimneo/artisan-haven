@@ -13,7 +13,7 @@ const UpdateProfile = () => {
   };
   return (
     <div className="flex justify-evenly">
-      <div className="bg-gray-100 h-screen flex justify-center items-center ">
+      <div className=" h-screen flex justify-center items-center ">
         <Helmet>
           <title>Update-Profile</title>
         </Helmet>
