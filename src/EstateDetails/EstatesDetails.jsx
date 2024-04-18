@@ -15,20 +15,26 @@ const EstatesDetails = () => {
       <div className="hero-content flex-col ">
         <img src={estate.image} className="max-w-xl rounded-lg shadow-2xl" />
         <div>
-          <h1 className="text-3xl font-bold">{estate.estate_title}</h1>
-          <p>
+          <h1 className="text-3xl font-bold mb-4">{estate.estate_title}</h1>
+          <p className="font-bold">
             Location:
             {estate.location}
           </p>
-          <p>{estate.segment_name}</p>
-          <p>Price : {estate.price}</p>
-          <p>{estate.status}</p>
-          <p>{estate.area}</p>
-          <p>{estate.description}</p>
-          {estate.facilities.map((facility) => (
-            <p key={facility}>{facility}</p>
-          ))}
-          <Link to={"/"} className="btn btn-primary">
+          <p className="font-bold">Segment-name: {estate.segment_name}</p>
+          <p className="font-bold">Price : {estate.price}</p>
+          <p className="font-bold">Status : {estate.status}</p>
+          <p className="font-bold">Area : {estate.area}</p>
+          <div className="flex">
+            <span className="font-bold">Facilities :</span>
+            {estate.facilities.map((facility) => (
+              <p className="font-bold" key={facility}>
+                {facility}
+              </p>
+            ))}
+          </div>
+          <p className="font-bold">{estate.description}</p>
+
+          <Link to={"/"} className="btn btn-primary mt-4">
             Back to Home
           </Link>
         </div>
