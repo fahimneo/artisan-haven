@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import { useLoaderData } from "react-router-dom";
 import CraftItems from "./CraftItems";
+import ReviewSection from "./ReviewSection";
+import AskedQuestion from "./AskedQuestion";
 
 const Home = () => {
   const craftItem = useLoaderData();
@@ -21,6 +23,8 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <ReviewSection></ReviewSection>
+      <AskedQuestion></AskedQuestion>
     </div>
   );
 };

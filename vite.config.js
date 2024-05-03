@@ -5,4 +5,3 @@ export default defineConfig({
   plugins: [react()],
 })
 
-// Path: src/Pages/MyArtCraftList/MyArtCraftList.jsx
