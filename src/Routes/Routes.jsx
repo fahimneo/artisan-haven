@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
-import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
-import EstatesDetails from "../EstateDetails/EstatesDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import About from "../Pages/About/About";
+import CraftItemsDetails from "../Pages/Home/CraftItemsDetails";
+import AllArtCraftItem from "../Pages/AllArtCraftItem/AllArtCraftItem";
+import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
+import MyArtCraftList from "../Pages/MyArtCraftList/MyArtCraftList";
+import UpdateArtCraft from "../Pages/MyArtCraftList/UpdateArtCraft";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,14 +20,42 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/addCraft"),
       },
       {
-        path: "/update-profile",
+        path: "/viewDetails/:id",
         element: (
           <PrivateRoute>
-            <UpdateProfile></UpdateProfile>
+            <CraftItemsDetails></CraftItemsDetails>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addCraft/${params.id}`),
+      },
+      {
+        path: "/allArtCraft",
+        element: <AllArtCraftItem></AllArtCraftItem>,
+        loader: () => fetch("http://localhost:5000/addCraft"),
+      },
+      {
+        path: "/addCraft",
+        element: (
+          <PrivateRoute>
+            <AddCraftItem></AddCraftItem>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/artCraftList",
+        element: (
+          <PrivateRoute>
+            <MyArtCraftList></MyArtCraftList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateArtCraft></UpdateArtCraft>,
       },
       {
         path: "/login",
@@ -33,15 +64,6 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
-      },
-      {
-        path: "/estates/:id",
-        element: (
-          <PrivateRoute>
-            <EstatesDetails></EstatesDetails>
-          </PrivateRoute>
-        ),
-        loader: () => fetch("/estate.json"),
       },
       {
         path: "/about",
