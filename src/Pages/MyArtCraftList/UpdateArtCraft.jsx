@@ -8,7 +8,7 @@ const UpdateArtCraft = () => {
   const [updateData, setUpdateData] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addCraft/${id}`)
+    fetch(`http://localhost:8080/addCraft/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setUpdateData(data);
@@ -39,7 +39,7 @@ const UpdateArtCraft = () => {
     };
     console.log(info);
     //send data to server
-    fetch(`http://localhost:5000/addCraft/${id}`, {
+    fetch(`http://localhost:8080/addCraft/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

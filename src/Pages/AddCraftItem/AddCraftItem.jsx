@@ -31,7 +31,7 @@ const AddCraftItem = () => {
     };
     console.log(info);
     //send data to server
-    fetch("http://localhost:5000/addCraft", {
+    fetch("http://localhost:8080/addCraft", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

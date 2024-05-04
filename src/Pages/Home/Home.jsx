@@ -7,6 +7,7 @@ import AskedQuestion from "./AskedQuestion";
 
 const Home = () => {
   const craftItem = useLoaderData();
+  console.log(craftItem);
   return (
     <div>
       <Helmet>

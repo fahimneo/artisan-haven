@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../../Hoocks/UseAuth";
 import { useEffect, useState } from "react";
+import logo from "../../assets/logo.png";
 
 const NavBar = () => {
   const { user, logOut } = UseAuth();
@@ -97,7 +98,10 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="text-xl font-bold">Artisan Haven</a>
+        <a className="flex justify-center items-center">
+          <img src={logo} alt="logo" className="w-20" />
+          <span className="text-xl font-bold">Artisan Haven</span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

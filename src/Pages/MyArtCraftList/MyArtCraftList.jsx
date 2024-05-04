@@ -11,7 +11,7 @@ const MyArtCraftList = () => {
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/artCraft/${user?.email}`)
+    fetch(`http://localhost:8080/artCraft/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyCraft(data);
@@ -29,7 +29,7 @@ const MyArtCraftList = () => {
       cancelButtonText: "No, keep it",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteItem/${id}`, {
+        fetch(`http://localhost:8080/deleteItem/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

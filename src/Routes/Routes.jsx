@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/addCraft"),
+        loader: () => fetch("http://localhost:8080/addCraft"),
       },
       {
         path: "/viewDetails/:id",
@@ -30,12 +30,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addCraft/${params.id}`),
+          fetch(`http://localhost:8080/addCraft/${params.id}`),
       },
       {
         path: "/allArtCraft",
         element: <AllArtCraftItem></AllArtCraftItem>,
-        loader: () => fetch("http://localhost:5000/addCraft"),
+        loader: () => fetch("http://localhost:8080/addCraft"),
       },
       {
         path: "/addCraft",
