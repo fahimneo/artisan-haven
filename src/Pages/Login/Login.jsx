@@ -50,7 +50,8 @@ const Login = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="email"
+                  name="email"
+                  placeholder="Email"
                   className="input input-bordered"
                   {...register("email", { required: true })}
                 />
@@ -64,6 +65,7 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   {...register("password", { required: true })}

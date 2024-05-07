@@ -26,6 +26,8 @@ const FirebaseProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  //update user profile
+
   const updateUserProfiles = (name, image) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -49,7 +51,6 @@ const FirebaseProvider = ({ children }) => {
 
   const logOut = () => {
     setUser(null);
-
     return signOut(auth);
   };
 
@@ -58,6 +59,9 @@ const FirebaseProvider = ({ children }) => {
       if (user) {
         setLoading(false);
         setUser(user);
+        console.log("user is logged in");
+      } else {
+        console.log("user is logged out");
       }
     });
     return () => unsubscribe();

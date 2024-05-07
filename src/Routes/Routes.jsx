@@ -11,6 +11,7 @@ import AllArtCraftItem from "../Pages/AllArtCraftItem/AllArtCraftItem";
 import AddCraftItem from "../Pages/AddCraftItem/AddCraftItem";
 import MyArtCraftList from "../Pages/MyArtCraftList/MyArtCraftList";
 import UpdateArtCraft from "../Pages/MyArtCraftList/UpdateArtCraft";
+import ExtraCard from "../Pages/Home/ExtraCard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("http://localhost:8080/addCraft"),
+      },
+      {
+        path: "/extraCard/:subcategory_Name",
+        element: <ExtraCard></ExtraCard>,
+        loader: () => fetch("http://localhost:8080/extraItem"),
       },
       {
         path: "/viewDetails/:id",

@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import CraftItems from "./CraftItems";
 import ReviewSection from "./ReviewSection";
 import AskedQuestion from "./AskedQuestion";
+import ExtraCategory from "./ExtraCategory";
 
 const Home = () => {
   const craftItem = useLoaderData();
@@ -23,6 +24,10 @@ const Home = () => {
             <CraftItems key={craft._id} craft={craft}></CraftItems>
           ))}
         </div>
+      </div>
+      <div className="mt-20">
+        {" "}
+        <ExtraCategory></ExtraCategory>
       </div>
       <ReviewSection></ReviewSection>
       <AskedQuestion></AskedQuestion>

@@ -49,7 +49,7 @@ const UpdateArtCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Your Craft Item has been updated successfully",
