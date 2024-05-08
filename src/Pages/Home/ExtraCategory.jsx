@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ExtraCategory = () => {
   const [extras, setExtras] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/extraItem")
+    fetch("https://artisan-haven.vercel.app/extraItem")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

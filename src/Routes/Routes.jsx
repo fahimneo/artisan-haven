@@ -21,12 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:8080/addCraft"),
+        loader: () => fetch("https://artisan-haven.vercel.app/addCraft"),
       },
       {
         path: "/extraCard/:subcategory_Name",
         element: <ExtraCard></ExtraCard>,
-        loader: () => fetch("http://localhost:8080/extraItem"),
+        loader: () => fetch("https://artisan-haven.vercel.app/extraItem"),
       },
       {
         path: "/viewDetails/:id",
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8080/addCraft/${params.id}`),
+          fetch(`https://artisan-haven.vercel.app/addCraft/${params.id}`),
       },
       {
         path: "/allArtCraft",
         element: <AllArtCraftItem></AllArtCraftItem>,
-        loader: () => fetch("http://localhost:8080/addCraft"),
+        loader: () => fetch("https://artisan-haven.vercel.app/addCraft"),
       },
       {
         path: "/addCraft",

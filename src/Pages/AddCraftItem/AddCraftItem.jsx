@@ -31,7 +31,7 @@ const AddCraftItem = () => {
     };
     console.log(info);
     //send data to server
-    fetch("http://localhost:8080/addCraft", {
+    fetch("https://artisan-haven.vercel.app/addCraft", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -5,7 +5,7 @@ const ExtraCard = () => {
   const { subcategory_Name } = useParams();
   const [extras, setExtras] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/addCraft")
+    fetch("https://artisan-haven.vercel.app/addCraft")
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(
@@ -13,7 +13,7 @@ const ExtraCard = () => {
         );
         setExtras(filtered);
       });
-  }, []);
+  }, [subcategory_Name]);
   console.log(extras);
   return (
     <div>
