@@ -20,4 +20,6 @@ To get started with Artisan Haven, simply visit our website [here](#) and explor
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [https://artisan-haven.netlify.app](LICENSE).
+
+Live Link : https://artisan-haven.netlify.app
