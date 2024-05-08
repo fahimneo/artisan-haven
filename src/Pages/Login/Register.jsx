@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, updateUserProfile } = UseAuth();
+  const { createUser, updateUserProfiles } = UseAuth();
   const {
     register,
     handleSubmit,
@@ -20,6 +20,7 @@ const Register = () => {
   const from = location?.state || "/";
   const onSubmit = (data) => {
     const { email, password, image, fullName } = data;
+    console.log(fullName, image);
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters");
       return;
@@ -32,14 +33,20 @@ const Register = () => {
       toast.success("User created successfully");
     }
 
-    createUser(email, password).then(() => {
-      updateUserProfile(fullName, image)
-        .then(() => {
-          navigate(from);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    createUser(email, password).then((result) => {
+      if (result.user) {
+        const profile = {
+          displayName: fullName,
+          photoURL: image,
+        };
+        updateUserProfiles(profile)
+          .then(() => {
+            navigate(from);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     });
   };
   return (

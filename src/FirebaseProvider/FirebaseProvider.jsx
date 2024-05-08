@@ -28,11 +28,8 @@ const FirebaseProvider = ({ children }) => {
 
   //update user profile
 
-  const updateUserProfiles = (name, image) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: image,
-    });
+  const updateUserProfiles = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   const signInUser = (email, password) => {
